@@ -68,49 +68,54 @@ In this section, all datasets will be merged into a single dataset for analysis 
 
 <br>
 
-## 📂 **STAGE 3: Data Modeling with K-Means Clustering**
-### Pre-processing
-Sebelum melakukan data modeling, terdapat beberapa tahap pre-processing data yang perlu dilakukan yaitu:
-- **Fitur yang tidak diperlukan** untuk model akan **dihapus** agar data lebih terfokus. 
-- Fitur kategorikal akan di-**encoding** agar dapat diolah oleh algoritma machine learning. 
-- Dilakukan **standardisasi** fitur untuk memastikan skala data seragam dan menghindari bias dalam model.<br>
-<br>
-
-### Modeling
-Setelah pre-processing data selesai, tahap berikutnya adalah menggunakan metode **Principal Component Analysis (PCA)**. PCA digunakan untuk mengurangi dimensi data dengan mempertahankan informasi yang signifikan. Dengan mengurangi dimensi data, dapat mengoptimalkan kinerja model dan mengatasi masalah multicollinearity antara fitur. Selanjutnya, langkah penting dalam proses ini adalah menentukan jumlah cluster terbaik. Dalam analisis ini, **Distortion Score dan Elbow Method** digunakan untuk memilih jumlah cluster yang optimal. Berdasarkan hasil analisis, **jumlah cluster terbaik yang ditemukan adalah 4**.
+## 📌 **Data Preprocessing**
 
 <br>
-<p align="center">
-    <kbd> <img width="600" alt="distortion" src="https://github.com/faizns/Predict-Customer-Personality-to-Boost-Marketing-Campaign/assets/115857221/176ddb7a-2357-49c0-8d06-1222973b0229"> </kbd> <br>
-    Gambar 3 — Plot Distortion Scoce Elbow
-</p>
+
+## 📄 Data Cleaning
+This section will involve various processes such as correcting errors, adjusting data types, handling missing values, managing duplicates, and so on.
+
+### 1. Data Type
+
+All columns in this table are currently of string data type. Columns such as `Year`, `Age`, `G`, and other basketball stats should be converted to numeric format.
+
+### 2. Missing Values
+
+We have identified three categories for the columns with missing values:
+- `Vote_Share`: All missing values in this feature indicate that the players did not receive any MVP votes.
+- **Team Stats**: Columns related to team stats have consistent missing values across them, indicating a common factor for these missing values.
+- **Player Stats**: Several columns related to player stats, particularly shooting percentages, contain missing values.
+
+### 3. Duplicated Values
+
+The dataset contains 0 duplicated records.
+
 <br>
 
-Setelah menentukan jumlah cluster yang optimal, dilakukan **clustering menggunakan algoritma K-means**. Algoritma ini akan mengelompokkan data ke dalam cluster berdasarkan kesamaan fitur. Dengan melakukan clustering, dapat mengidentifikasi pola atau kelompok yang ada dalam data dan memahami karakteristik masing-masing cluster.
+## 📄 Data Transformation
+In this section, various processes will be performed, including adding new columns or features, handling outliers, encoding variables, correcting errors, and creating and transforming new columns.
 
-<br>
-<p align="center">
-    <kbd> <img width="600" alt="cluster" src="https://github.com/faizns/Predict-Customer-Personality-to-Boost-Marketing-Campaign/assets/115857221/dda584d5-8519-4775-92c9-f7519bee8c6f"> </kbd> <br>
-    Gambar 4 — Hasil Clustering menggunakan K-means
-</p>
-<br>
+### 1. Correcting Errors & Inconsistencies
 
-Dari plot hasil pemodelan dan pengelompokan data menggunakan metode clustering, terlihat bahwa **cluster-cluster yang terbentuk terpisah dengan baik** dan mengelompokkan data ke dalam kelompok yang berbeda-beda. Hal ini menunjukkan bahwa algoritma clustering yang digunakan berhasil dalam membedakan dan menggolongkan data berdasarkan karakteristik yang dimiliki.<br>
-<br>
+In the dataset, there are 17 unique values for `Position` column. In basketball, especially the NBA, there are five primary positions used: PG, SG, SF, PF, and C. Therefore, there may be potential errors or inconsistencies here. 
 
-### Evaluation
+There are quite a lot of players recorded as having multiple positions. In reality, there should be many more players recorded as having multiple positions, especially in this *position-less* era in the NBA. However, to make our data and analysis more consistent, we will use the first position recorded in the dataset.
 
-<p align="center">
-    <kbd> <img width="400" alt="score" src="https://github.com/faizns/Predict-Customer-Personality-to-Boost-Marketing-Campaign/assets/115857221/1c6de7e4-aea2-4cfc-a6a8-402ab4a5b6c2"></kbd> <br>
-    Gambar 5 — Hasil Evaluasi
-</p>
-<br>
+### 2. Creating New Columns
 
-Evaluasi hasil model menggunakan **Silhouette Score memberikan rekomendasi bahwa jumlah cluster terbaik adalah 4**. Hal ini didasarkan pada fakta bahwa nilai Silhouette Score pada jumlah cluster tersebut adalah yang tertinggi, yaitu 0.535. Silhouette Score merupakan metrik evaluasi yang menggambarkan seberapa baik objek-objek dalam satu cluster berada dalam kumpulan data mereka sendiri dibandingkan dengan cluster lainnya. Semakin tinggi nilai Silhouette Score, semakin baik cluster-cluster tersebut terpisah. <br>
-<br>
-<br>
+These are another set of columns or features created to assist in analyzing and predicting an MVP in the NBA.
 
----
+Table 1 — Feature Engineering
+ **New Feature** | **Explanation** |
+-----------------|--------------|
+MVP_rank | MVP ranking of each player for each year  
+Overall_Standings | Overall standing of a team in each year
+Conf_Standings | Conference standing of a team in each year
+Stats_zscore | New features by transforming and standardizing all statistics within each year
+prior_mvp_winner | Have you won an MVP before?
+last_season_mvp | Did you win the MVP last year?
+last_two_season_mvp | Did you win the last two MVPs?
+total_mvp_currently | How many MVPs have you won before the current season?
 
 ## 📂 **STAGE 4: Customer Personality Analysis**
 Customer Personality Analysis bertujuan untuk **memahami perbedaan dan kesamaan antara cluster-cluster tersebut, serta mengidentifikasi karakteristik unik yang mungkin dimiliki oleh setiap kelompok**. Dengan pemahaman yang lebih mendalam tentang karakteristik antar cluster, perusahaan dapat mengambil tindakan yang lebih tepat dan mengarahkan strategi bisnis yang lebih spesifik untuk setiap kelompok pelanggan.
