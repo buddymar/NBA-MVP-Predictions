@@ -77,6 +77,7 @@ The data cleaning section will involve various processes such as correcting erro
 ### Data Type
 
 All columns in this table are currently of string data type. Columns such as `Year`, `Age`, `G`, and other basketball stats should be converted to numeric format.
+
 <br>
 
 ### Missing Values
@@ -85,11 +86,13 @@ We have identified three categories for the columns with missing values:
 - `Vote_Share`: All missing values in this feature indicate that the players did not receive any MVP votes.
 - **Team Stats**: Columns related to team stats have consistent missing values across them, indicating a common factor for these missing values.
 - **Player Stats**: Several columns related to player stats, particularly shooting percentages, contain missing values.
+
 <br>
 
 ### Duplicated Values
 
 The dataset contains 0 duplicated records.
+
 <br>
 
 ### Correcting Errors & Inconsistencies
@@ -97,6 +100,7 @@ The dataset contains 0 duplicated records.
 In the dataset, there are 17 unique values for `Position` column. In basketball, especially the NBA, there are five primary positions used: PG, SG, SF, PF, and C. Therefore, there may be potential errors or inconsistencies here. 
 
 There are quite a lot of players recorded as having multiple positions. In reality, there should be many more players recorded as having multiple positions, especially in this *position-less* era in the NBA. However, to make our data and analysis more consistent, we will use the first position recorded in the dataset.
+
 <br>
 
 ### Creating New Columns
@@ -124,6 +128,7 @@ The Exploratory Data Analysis (EDA) will focus on analyzing all available data a
 - Player Basic Stats
 - Player Advanced Stats
 - Teams Performance
+
 <br>
 
 ### Player Attributes
@@ -140,6 +145,7 @@ The Exploratory Data Analysis (EDA) will focus on analyzing all available data a
 - MPV winners consistently receive high vote shares, often close to or exceeding 90%, indicating strong support from NBA voters for their MVP candidacy.
 - Despite the subjective nature of MVP voting, the consistently high vote shares for winners suggest a certain level of consensus among voters regarding the most deserving candidate. However, there may still be biases or factors influencing the voting process, such as media coverage, team success, or individual narratives.
 - While power forwards and point guards have historically dominated MVP awards from 2001 to 2023, the last three MVP winners have been centers. Centers are traditionally known for their defensive presence, rebounding, and rim protection, but recent MVP-winning centers also excel offensively, showcasing versatility in their skill sets.
+
 <br>
 
 ### Player Basic Stats
@@ -151,6 +157,7 @@ The Exploratory Data Analysis (EDA) will focus on analyzing all available data a
 **Key Points:**
 - MVP winners exhibit superior performance across various statistical categories compared to both MVP vote-getters and all players.
 - **Statistical excellence, particularly in scoring, shooting efficiency, playmaking, and defensive contributions, appears to be a common trait among MVP winners.**
+
 <br>
 
 ### Player Advanced Stats
@@ -167,6 +174,7 @@ The Exploratory Data Analysis (EDA) will focus on analyzing all available data a
 - Advanced/analytical statistics provide a more nuanced understanding of player performance, focusing on efficiency, usage, and impact on both ends of the court.
 - MVP winners consistently demonstrate superior performance across various advanced metrics compared to both MVP vote-getters and all players, emphasizing their overall impact and contribution to their teams' success.
 - It's undeniable that OBPM can provide more insight into a player's value than DBPM. A player can receive MVP votes solely based on their offensive performance, even if they have little defensive impact while on the court. However, it's worth noting that many MVP winners also have high DBPM, which sets them apart from other vote-getters.
+
 <br>
 
 ### Team Stats
@@ -188,6 +196,7 @@ The Exploratory Data Analysis (EDA) will focus on analyzing all available data a
 ## 📌 **Predictive Modeling**
 
 To predict the NBA MVP from this dataset, three models will be compared: Random Forest, XGBoost, and Extra Trees Regressor. The best-performing model will then be used for predicting and tracking the current season's NBA MVP. Given the imbalanced nature of the target variable, which often includes many zero values, the Root Mean Squared Logarithmic Error (RMSLE) will be used as the scoring metric.
+
 <br>
 
 ### Modeling
@@ -222,6 +231,7 @@ XGBRegressor | 0.155 | 0.9705 | 'colsample_bytree': 1.0, 'gamma': 0.1, 'learning
 - Nikola Jokić, with the highest PER, WS, and BPM, likely contributes significantly to the model predicting him as the number one of the top 10 MVP frontrunners.
 - Shai Gilgeous-Alexander (2nd) and Giannis Antetokounmpo (3rd) still have a chance to move up in the MVP ranking ladder based on their actual basic stats, advanced stats, team standings, and vote share prediction.
 - Luka Dončić leads in PTS per game (34.1) this season, with a considerable gap to the second highest, Shai Gilgeous-Alexander (30.9). This contributes to Dončić being in 4th place currently, despite his team's poor standings.
+
 <br>
 
 ### Model Interpretation
