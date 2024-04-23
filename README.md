@@ -10,7 +10,7 @@
 **Table of Contents**
 - [Introduction](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-introduction)
 - [Data Scraping](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-data-scraping)
-- [Data Integration](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-data-scraping)
+- [Data Integration](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-data-integration)
 - [Data Preprocessing](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-data-preprocessing)
 	- [Data Cleaning](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-data-preprocessing)
       - [Data Type](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#data-type)
