@@ -70,38 +70,40 @@ In this section, all datasets will be merged into a single dataset for analysis 
 
 ## 📌 **Data Preprocessing**
 
+The data cleaning section will involve various processes such as correcting errors, adjusting data types, handling missing values, managing duplicates, and so on. In the data transformation section, various processes will be performed, including adding new columns or features, handling outliers, encoding variables, correcting errors, and creating and transforming new columns.
+
 <br>
 
-## 📄 Data Cleaning
-This section will involve various processes such as correcting errors, adjusting data types, handling missing values, managing duplicates, and so on.
-
-### 1. Data Type
+### Data Type
 
 All columns in this table are currently of string data type. Columns such as `Year`, `Age`, `G`, and other basketball stats should be converted to numeric format.
 
-### 2. Missing Values
+<br>
+
+### Missing Values
 
 We have identified three categories for the columns with missing values:
 - `Vote_Share`: All missing values in this feature indicate that the players did not receive any MVP votes.
 - **Team Stats**: Columns related to team stats have consistent missing values across them, indicating a common factor for these missing values.
 - **Player Stats**: Several columns related to player stats, particularly shooting percentages, contain missing values.
 
-### 3. Duplicated Values
+<br>
+
+### Duplicated Values
 
 The dataset contains 0 duplicated records.
 
 <br>
 
-## 📄 Data Transformation
-In this section, various processes will be performed, including adding new columns or features, handling outliers, encoding variables, correcting errors, and creating and transforming new columns.
-
-### 1. Correcting Errors & Inconsistencies
+### Correcting Errors & Inconsistencies
 
 In the dataset, there are 17 unique values for `Position` column. In basketball, especially the NBA, there are five primary positions used: PG, SG, SF, PF, and C. Therefore, there may be potential errors or inconsistencies here. 
 
 There are quite a lot of players recorded as having multiple positions. In reality, there should be many more players recorded as having multiple positions, especially in this *position-less* era in the NBA. However, to make our data and analysis more consistent, we will use the first position recorded in the dataset.
 
-### 2. Creating New Columns
+<br>
+
+### Creating New Columns
 
 These are another set of columns or features created to assist in analyzing and predicting an MVP in the NBA.
 
@@ -116,6 +118,8 @@ prior_mvp_winner | Have you won an MVP before?
 last_season_mvp | Did you win the MVP last year?
 last_two_season_mvp | Did you win the last two MVPs?
 total_mvp_currently | How many MVPs have you won before the current season?
+
+<br>
 
 ## 📂 **STAGE 4: Customer Personality Analysis**
 Customer Personality Analysis bertujuan untuk **memahami perbedaan dan kesamaan antara cluster-cluster tersebut, serta mengidentifikasi karakteristik unik yang mungkin dimiliki oleh setiap kelompok**. Dengan pemahaman yang lebih mendalam tentang karakteristik antar cluster, perusahaan dapat mengambil tindakan yang lebih tepat dan mengarahkan strategi bisnis yang lebih spesifik untuk setiap kelompok pelanggan.
