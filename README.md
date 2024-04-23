@@ -32,89 +32,42 @@
 
 ---
 
-## 📂 **STAGE 0: Problem Statement**
+## 📌 **Introduction**
 
-### Introduction
-Memahami bagaimana karakteristik atau perilaku pelanggan dalam melakukan transaksi sangat penting untuk mengatur strategi marketing dari sebuah perusahaan. Dengan memahami preferensi, kebutuhan, dan pola pembelian pelanggan, perusahaan dapat memberikan treatment yang tepat untuk setiap individu berdasarkan permasalahan yang dihadapinya. Dengan mempertimbangkan faktor-faktor ini, perusahaan dapat memberikan pengalaman yang lebih baik kepada pelanggan, meningkatkan kepuasan mereka dalam bertransaksi, dan pada akhirnya meningkatkan performa penjualan secara keseluruhan. Untuk menganalisis karakteristik atau perilaku pelanggan, pendekatan clustering dapat digunakan untuk mengelompokkan pelanggan ke dalam segmen-segmen yang berbeda, yang kemudian dapat memberikan insight berharga dalam menyusun strategi marketing yang lebih efektif dan memenuhi kebutuhan setiap kelompok pelanggan dengan lebih baik. Dengan demikian, memahami karakteristik pelanggan melalui analisis clustering merupakan langkah penting dalam mengoptimalkan strategi penjualan dan mencapai keberhasilan jangka panjang bagi perusahaan.<br>
-<br>
-
-### Goal
-Tujuan dari analisis profil dan perilaku pelanggan dengan pendekatan clustering adalah untuk memahami pelanggan dengan lebih baik, menyediakan layanan yang lebih personal, meningkatkan performa penjualan, dan membangun hubungan yang kuat dengan pelanggan.<br>
-<br>
-
-### Objective
-- Membuat model mechine learning yang dapat mengelompokkan pelanggan ke dalam segmen-segmen yang berbeda berdasarkan karakteristik atau perilaku mereka.
-- Mengekstraksi insight yang lebih mendalam tentang profil dan perilaku pelanggan.
-- Menentukan strategi bisnis yang efektif dari hasil clustering.<br>
-
-<br>
-<br>
-
----
-## 📂 **STAGE 1: Data Preparation**
-### Data Quality Asssessment
-Dataset memiliki 2240 baris dan 30 fitur. Asesmen data dilakukan untuk memastikan bahwa data yang digunakan untuk analisis selanjutnya sudah siap dan sesuai dengan kebutuhan analisis. Hal yang dilakukan:
-- Memeriksa missing value pada data
-- Memeriksa duplikasi data
-- Memeriksa tipe dan konsistensi nilai
-- Memeriksa outlier atau data yang tidak biasa (anomali)
-
-Tabel 1 — Hasil Data Quality Assessment
- **Data Assessment** | **Finding**  | **Cleaning** 
---------------------|--------------|--------------
-Missing values | Tidak terdapat missing value | -
-Duplikat | Tidak terdapat duplikat data | -
-Fitur atau nilai yang tidak sesuai | Tipe data `Dt_Customer` sebaikkanya datettime | Mengubah tipe data menjadi datteime
-Anomali atau outlier | Secara keseluruhan fitur memiliki outlier. Terlihat juga fitur `Income` dan `Year_Birth` memiliki nilai yang ekstrim  | Handling outlier menggunakan IQR.
-<br>
-
-### Feature Engineering
-Pada tahap feature engineering, dilakukan pembuatan feature baru berdasarkan feature yang sudah ada dengan tujuan untuk membuat analisis menjadi lebih insightful. Feature baru ini dapat mengungkap informasi tambahan atau menggabungkan beberapa fitur yang saling berhubungan untuk membentuk fitur yang lebih kuat.
-
-Tabel 2 — Feature Engineering
- **New Feature** | **Source** |
------------------|--------------|
-Membership Duration | 2023 - Dt_Customer  
-Age_Categories | Age
-Total_Children | Kidhome + Teenhome
-Total_Transaction | NumDealsPurchases + NumWebPurchases + NumCatalogPurchases + NumStorePurchases
-Total_Spending | MntCoke + MntFruits + MntMeatProducts + MntFishProducts + MntSweet
-Total_Accepted_Campaign | AcceptedCmp1 + AcceptedCmp2 + AcceptedCmp3 + AcceptedCmp4 + AcceptedCmp5
-CVR | Total_Transaction x NumWebVisitsMonth/100
-
-<br>
-<br>
-
-## 📂 **STAGE 2: Data Exploration**
-### Conversion Rate by Income, Spending, and Age
-Pada tahap ini, dilakukan analisis konversi rate untuk mendapatkan wawasan tentang persentase pengunjung situs web dan tindakan yang dilakukan selama kunjungan mereka. Tujuan analisis ini adalah untuk melihat apakah tindakan pengunjung tersebut berujung pada transaksi pembelian atau tidak. Dengan demikian, perusahaan dapat memahami perilaku pengunjung dan mengidentifikasi peluang untuk meningkatkan tingkat konversi serta keberhasilan campaign pemasaran mereka.
-
-<br>
 <p align="center">
-    <kbd> <img width="1000" alt="cvr" src="https://github.com/faizns/Predict-Customer-Personality-to-Boost-Marketing-Campaign/assets/115857221/cd694ce7-cb4f-409e-b8b5-3ae2272134dd"> </kbd> <br>
-    Gambar 1 — Plot Korelasi Conversion Rate (CVR) dengan Pendapatan, Total Pengeluaran, dan Usia
+    <kbd> <img width="1000" alt="mvp banner" src="https://raw.githubusercontent.com/kudou88/NBA-MVP-Predictions/main/nba_mvp_banner.jpg"> </kbd> <br>
 </p>
+
+In the exhilarating world of professional basketball, the race for the NBA Most Valuable Player (MVP) award stands as a pinnacle of individual excellence and team leadership. Every season, NBA fans eagerly anticipate the unveiling of the MVP, an accolade bestowed upon the player deemed most instrumental to their team's success and exhibiting exceptional performance on the court.
+
+The MVP selection process entails a comprehensive evaluation by a panel of sportswriters and broadcasters, who cast their votes based on a multitude of factors, including individual player statistics, team performance, impact on game outcomes, and intangible qualities such as leadership and sportsmanship. With the MVP race often culminating in heated debates and impassioned discussions among basketball enthusiasts, unraveling the underlying metrics that sway voters' decisions has become a compelling endeavor.
+
+In this report, we undertake an in-depth exploration of the NBA MVP selection process. Utilizing a meticulously curated dataset obtained through web scraping, we delve into the intricate interplay of player attributes, fundamental and advanced statistical metrics, and team dynamics. Our objective is to unravel the complexities surrounding MVP success by scrutinizing the statistical profiles of past MVP recipients and dissecting the subtle intricacies of team performance. Through rigorous analysis, we endeavor to discern the pivotal factors that sway voters' decisions and forecast the leading contenders for the prestigious MVP accolade.
+
 <br>
 
-Terdapat temuan bahwa **pendapatan dan total spending memiliki korelasi positif yang signifikan terhadap tingkat konversi**. Hal ini menunjukkan bahwa **semakin tinggi pendapatan dan total spending seseorang, semakin besar kemungkinan mereka melakukan pembelian**. Faktor-faktor seperti kemampuan finansial yang lebih baik dan persepsi nilai yang tinggi terhadap produk dapat menjadi penyebab korelasi positif ini. Oleh karena itu, perusahaan dapat memanfaatkan temuan ini untuk mengoptimalkan strategi pemasaran mereka. Mereka dapat fokus pada target audiens dengan pendapatan dan total spending yang lebih tinggi, dengan tujuan meningkatkan peluang konversi dan keberhasilan marketing campaign secara keseluruhan. Di sisi lain, **fitur usia cenderung tidak memiliki korelasi yang signifikan terhadap tingkat konversi**. Hal ini berarti usia tidak menjadi faktor dominan yang mempengaruhi keputusan konsumen dalam melakukan konversi atau pembelian. <br>
-<br>
+## 📌 **Data Scraping**
 
-### Income and Total Spending
-Analisis korelasi antara Income dan total spending penting dilakukan karena kedua fitur ini memiliki hubungan yang erat dalam konteks keuangan dan pengeluaran individu atau pelanggan. Dengan menganalisis korelasi antara kedua fitur ini, dapat dipahami sejauh mana tingkat pendapatan seseorang mempengaruhi pola pengeluaran mereka.
-
-<br>
 <p align="center">
-    <kbd> <img width="500" alt="total spending income" src="https://github.com/faizns/Predict-Customer-Personality-to-Boost-Marketing-Campaign/assets/115857221/73d7c91c-9a00-4801-8e83-a7d300124827"> </kbd> <br>
-    Gambar 2 — Plot Korelasi Pendapatan dengan Total Pengeluaran
+    <kbd> <img width="1000" alt="bref" src="https://raw.githubusercontent.com/buddymar/NBA-MVP-Predictions/main/assets/BRef.jpg"> </kbd> <br>
 </p>
+
+The data utilized in this analysis and predictive modeling will be sourced from a website that hosts various basketball databases, [basketball-reference.com](https://www.basketball-reference.com/). The following data will be scraped, including:
+- **MVP voting results:** Distribution of votes among players who received at least one vote each season.
+- **Players basic stats:** All stats typically recorded in the official box score, aggregated per game for counting stats and per year for percentage stats.
+- **Players advanced stats:** Analytical stats formulated and calculated using basic stats.
+- **Team stats:** Stats concerning team performance and record for each season.
+
+All this data is scraped for the period from 2001 to present.
+
 <br>
 
-Hubungan korelasi positif yang kuat antara Income dan total spending menunjukkan **adanya hubungan yang signifikan antara tingkat pendapatan seseorang dengan pola pengeluaran mereka**. Hal ini mengindikasikan bahwa **semakin tinggi pendapatan seseorang, kemungkinan besar mereka juga memiliki pengeluaran yang lebih tinggi**. Dalam konteks bisnis, pemahaman ini dapat membantu perusahaan dalam mengenali segmen pelanggan yang memiliki potensi pembelian yang lebih tinggi dan merancang strategi pemasaran yang tepat untuk meningkatkan keterlibatan dan kepuasan pelanggan.
+## 📌 **Data Integration**
+
+In this section, all datasets will be merged into a single dataset for analysis and prediction. Before proceeding, we will conduct feature selection to eliminate columns that are unnecessary, redundant, or contain similar information to columns that will be used in the analysis.
 
 <br>
-<br>
 
----
 ## 📂 **STAGE 3: Data Modeling with K-Means Clustering**
 ### Pre-processing
 Sebelum melakukan data modeling, terdapat beberapa tahap pre-processing data yang perlu dilakukan yaitu:
