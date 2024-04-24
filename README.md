@@ -4,6 +4,7 @@
 **Platform**: Jupyter Notebook | [Notebook via nbviewer](https://nbviewer.org/github/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb) | [Notebook via Github](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb)<br>
 **Programming Language**: Python <br>
 **Libraries**: Pandas, NumPy, sklearn, Matplotlib, Seaborn, BeautifulSoup, SHAP <br>
+**Dashboard**: Tableau | [View Dashboard](https://public.tableau.com/views/NBAMVP_17115876738080/LEADERBOARD?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)<br>
 **Source Data**: scraped from [basketball-reference.com](https://www.basketball-reference.com/) <br>
 <br>
 
@@ -28,6 +29,7 @@
   - [Modeling](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#modeling)
   - [Model Prediction](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#model-prediction)
   - [Model Interpretation](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#model-interpretation)
+- [Dashboard](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/README.md#-dashboard)
 <br>
 
 ---
@@ -247,3 +249,19 @@ The feature with the highest impact on the XGBoost model prediction is `adj_W%`,
 </p>
 
 From the beeswarm plot, we can discern in greater detail the influence of each feature in this model. The plot vividly illustrates the wide range of impact from the `adj_W` feature. Additionally, it's apparent that features with high-value records exert the most influence on the model's predictions. Conversely, most low-value records result in zero impact across all features, except for `AST`, `Age`, and `Year`.
+
+<br>
+
+## 📌 **Dashboard**
+
+Utilizing the same dataset analyzed earlier, this dashboard offers an additional perspective on NBA player performance and facilitates comparisons between player statistics. The dashboard consists of two sections: Leaderboard and Player Detailed Stats.
+
+In the Leaderboard section, users can view the top 10 leaders in various statistics for each year or team. Meanwhile, the Player Stats section provides detailed information on selected player statistics, including the actual values, percentiles against other players each year, and comparisons to other players.
+
+<p align="center">
+    <kbd> <img width="1000" alt="share" src="https://raw.githubusercontent.com/buddymar/NBA-MVP-Predictions/main/assets/dash1.png"> </kbd> <br>
+</p>
+
+<p align="center">
+    <kbd> <img width="1000" alt="share" src="https://raw.githubusercontent.com/buddymar/NBA-MVP-Predictions/main/assets/dash2.png"> </kbd> <br>
+</p>
