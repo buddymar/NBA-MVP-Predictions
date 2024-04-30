@@ -1,7 +1,7 @@
 # 🏀 Unlocking the MVP Formula: Analyzing Player and Team Metrics for NBA MVP Predictions
 <br>
 
-**Platform**: Jupyter Notebook | [Notebook via nbviewer](https://nbviewer.org/github/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb) | [Notebook via Github](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb)<br>
+**Platform**: Jupyter Notebook | [View Notebook on nbviewer](https://nbviewer.org/github/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb) | [View Notebook on Github](https://github.com/buddymar/NBA-MVP-Predictions/blob/main/NBA%20MVP.ipynb)<br>
 **Programming Language**: Python <br>
 **Libraries**: Pandas, NumPy, sklearn, Matplotlib, Seaborn, BeautifulSoup, SHAP <br>
 **Dashboard**: Tableau | [View Dashboard](https://public.tableau.com/views/NBAMVP_17115876738080/LEADERBOARD?:language=en-US&:sid=&:display_count=n&:origin=viz_share_link)<br>
